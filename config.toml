@@ -56,9 +56,6 @@ title = "Dorian"
   text = "More about blueROCK"
   href = "https://itsblue.de/apps/bluerock"
 
-[build]
-  writeStats = true
-
 # syntax highlight settings
 [markup]
   [markup.highlight]
