@@ -47,7 +47,7 @@
   </p>
 
   {{ with .Site.Params.homepage.heroMenu }}
-  <div>
+  <div class="grid md:grid-flow-col md:auto-cols-max grid-flow-row auto-rows-min gap-4">
     {{ range . }}
     <a
       href="{{ .href }}"
@@ -56,7 +56,6 @@
       class="
         px-8
         py-4
-        mx-2
         rounded-full
         font-semibold
         text-lg
