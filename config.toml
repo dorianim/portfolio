@@ -43,8 +43,8 @@ title = "Dorian"
 
 [[params.homepage.gallery]]
   image = "/speedClimbing.jpg"
-  text = "More about Speedclimbing"
-  href = "https://speedclimbing.org"
+  #text = "More about Speedclimbing"
+  #href = "https://speedclimbing.org"
 
 [[params.homepage.gallery]]
   image = "/scStwIcon.png"
