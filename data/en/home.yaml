@@ -1,0 +1,53 @@
+01-hero:
+  modularLayout: hero
+  title: "Hey 👋 I'm Dorian"
+  tagline: "Speedclimber and software developer"
+  contact: "mailto:hello@dorian.im"
+  image: "/assets/photo.png"
+
+02-alert:
+  modularLayout: alert
+  color: yellow
+  content: |
+    I'm currently looking for an appartment in Munich. Do you have one available or know someone who does? **[Plase let me know :)](/room-shirt-qr)**
+
+03-heroMenu:
+  modularLayout: buttonMenu
+  items:
+    -
+      icon: "fas fa-envelope"
+      text: "Contact me"
+      href: "mailto:hello@dorian.im"
+
+    -
+      icon: "fab fa-gitlab"
+      text: "blue.code"
+      href: "https://itsblue.dev/dorian"
+
+    -
+      icon: "fab fa-github"
+      text: "GitHub"
+      href: "https://github.com/dorianim"
+
+    -
+      icon: "fab fa-instagram"
+      text: "Instagram"
+      href: "https://instagram.com/dorian.cpp"
+
+04-gallery:
+  modularLayout: gallery
+  items:
+    -
+      image: "/assets/speedClimbing.jpg"
+      #text: "More about Speedclimbing"
+      #href: "https://speedclimbing.org"
+
+    -
+      image: "/assets/scStwIcon.png"
+      text: "More about the ScStw"
+      href: "https://itsblue.de/scstw"
+
+    -
+      image: "/assets/blueRockIcon.png"
+      text: "More about blueROCK"
+      href: "https://itsblue.de/apps/bluerock"

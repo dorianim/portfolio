@@ -1,0 +1,27 @@
+<label class="block">
+    <span class="text-2xl">{{ .label }}</span>
+    {{ print "<" .blockType | safeHTML }}
+      name="{{ .name }}"
+      {{ with .type}}
+      type="{{ . }}"
+      {{ end }}
+      class="
+        block
+        mt-1
+        p-2
+        w-full
+        rounded-md
+        bg-gray-100
+        border-2 border-transparent
+        dark:bg-gray-600
+        focus:border-{{ site.Params.accentColor }}-500
+      "
+      placeholder="{{ .placeholder }}"
+      {{ if .required }}
+      required
+      {{ end }}
+      {{ with .rows }}
+      rows="{{ . }}"
+      {{ end }}
+    {{ print (htmlUnescape "></") .blockType ">" | safeHTML }}
+  </label>

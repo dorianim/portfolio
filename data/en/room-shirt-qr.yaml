@@ -1,0 +1,51 @@
+01-hero:
+  modularLayout: hero
+  title: "Hey 👋 Ich bin Dorian"
+  tagline: "Und ich suche ein Zimmer in München"
+  contact: "mailto:hello@dorian.im"
+  image: "/assets/photo.png"
+
+02-text-top:
+  modularLayout: text
+  content: |
+    Ich bin 18 Jahre alt und fange im Wintersemester 2021 an der TUM an, Informatik zu studieren. Ich komme ursprünglich aus Stuttgart und suche fürs Studium eine Wohnung oder ein WG-Zimmer in München.
+
+    Ein bisschen was zu mir: Ich bin leidenschaftlicher Open-Source Entwickler und Speedkletterer. Am Wochenende gehe ich bei gutem Wetter gerne raus zum Wandern, Rad fahren oder klettern. 
+    
+    Damit du weißt, worauf du dich einlässt, hier noch ein paar Bilder von mir:
+
+03-gallery:
+  modularLayout: gallery
+  items:
+    -
+      image: "/assets/speedClimbing.jpg"
+      text: "Speedklettern 🚀"
+
+    -
+      image: "/assets/room-shirt-qr/1.jpg"
+      text: "Draußen 🏕️"
+
+    -
+      image: "/assets/blueRockIcon.png"
+      text: "More about blueROCK"
+      href: "https://itsblue.de/apps/bluerock"
+
+05-contact-form:
+  modularLayout: form
+  preContent: |
+    Wenn du ein Zimmer frei hast, schreib mir gerne eine Mail an [hello@dorian.im](mailto:hello@dorian.im) oder schreib mir einfach hier eine Nachricht:
+  submitURL: "https://formspree.io/f/mleavkaj"
+  items:
+    - 
+      blockType: input
+      name: contact
+      label: "Wie erreiche ich dich?" 
+      type: text
+      placeholder: "Handynummer / Mailadresse"
+
+    -
+      blockType: "textarea"
+      name: "message" 
+      label: "Eine kurze Nachricht :)" 
+      required: true
+      rows: 4

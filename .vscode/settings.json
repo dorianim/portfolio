@@ -1,0 +1,5 @@
+{
+    "ltex.language": "de-DE",
+    "ltex.enabled": ["markdown", "yaml"],
+    "ltex.markdown.nodes": {"CodeBlock": "default", "FencedCodeBlock": "default", "AutoLink": "dummy", "Code": "dummy", "YamlFrontMatterBlock": "default"}
+}

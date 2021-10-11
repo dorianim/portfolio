@@ -1,0 +1,31 @@
+theme: "doriansPortfolio"
+languageCode: "en-us"
+baseurl: "https://dorian.im"
+title: "Dorian"
+defaultContentLanguage: en
+
+
+params:
+  name: "Dorian"
+  description: "Portfolio site of Dorian."
+  author: "Dorian"
+  authorEmail: "hello@dorian.im"
+  authorImage: "/assets/photo.png"
+  autoDarkMode: true
+
+  copyright: "Copyright © 2021 - Dorian Zedler · All rights reserved · "
+  githubHref: "https://github.com/dorianim/portfolio"
+  favicon: "favicon.ico"
+
+  accentColor: "blue"
+
+# syntax highlight settings
+markup:
+  highlight:
+    style: "dracula"
+
+languages: 
+  de:
+    title: "Dorian"
+  en:
+    title: "Dorian"

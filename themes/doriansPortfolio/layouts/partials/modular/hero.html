@@ -1,6 +1,6 @@
 <section class="p-4 flex flex-col items-center">
-  {{ $authorName := .Site.Params.author }} {{ with .Site.Params.authorImage }}
-  <div class="w-48 h-48 rounded-full mb-6 bg-red-100">
+  {{ $authorName := .author }} {{ with .image }}
+  <div class="w-48 h-48 rounded-full mb-6 bg-{{ site.Params.accentColor }}-100">
     <img
       src="{{.}}"
       class="w-full p-2 h-full object-contain"
@@ -10,7 +10,7 @@
   {{ end }}
 
   <h1 class="text-2xl font-bold text-center mb-4">
-    {{ .Site.Params.homepage.title }}
+    {{ .title }}
   </h1>
   <div
     class="text-5xl md:text-6xl font-bold text-center max-w-3xl mb-4 relative"
@@ -23,7 +23,7 @@
         transform
         left-1/2
         -translate-x-1/2
-        text-red-300
+        text-{{ site.Params.accentColor }}-300
         z-0
         w-full
       "
@@ -40,37 +40,12 @@
         />
       </svg>
     </div>
-    <div class="relative">{{ .Site.Params.homepage.tagline }}</div>
+    <div class="relative">{{ .tagline }}</div>
   </div>
-  <p class="font-light text-center max-w-sm mb-8">
-    {{ .Site.Params.homepage.description }}
-  </p>
 
-  {{ with .Site.Params.homepage.heroMenu }}
-  <div class="grid md:grid-flow-col md:auto-cols-max grid-flow-row auto-rows-min gap-4">
-    {{ range . }}
-    <a
-      href="{{ .href }}"
-      rel="noopener noreferrer"
-      target="_blank"
-      class="
-        px-8
-        py-4
-        rounded-full
-        font-semibold
-        text-lg
-        bg-black
-        text-white
-        hover:bg-gray-800
-        transition-colors
-        dark:bg-white dark:text-black dark:hover:bg-gray-200
-      "
-    >
-      {{ with .icon}}
-      <i class="{{ . }} mr-2"></i>
-      {{ end }} {{ with .text }} {{ . }} {{ end }}
-    </a>
-    {{ end }}
-  </div>
+  {{ with .description }}
+  <p class="font-light text-center max-w-sm mb-8">
+    {{ . }}
+  </p>
   {{ end }}
 </section>
