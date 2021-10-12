@@ -27,7 +27,7 @@ jobs:
           node-version: '16.x'
 
       - name: Install NPM Dependencies
-        run: cd themes/doriansPortfolio && npm i
+        run: npm i
 
       - name: Build
         run: hugo --minify
