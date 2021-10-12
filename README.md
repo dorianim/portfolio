@@ -14,5 +14,6 @@
 This is my personal portfolio website, based on Hugo.
 
 # Building
-- `cd themes/doriansPortfolio && npm i`
-- `cd ../.. && hugo serve`
+- Live updates and webserver on port 1313: `make watch`
+- Static build in public: `make build`
+- Clean: `make clean`
