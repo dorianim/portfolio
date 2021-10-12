@@ -7,30 +7,31 @@ on:
   pull_request:
 
 jobs:
-  build:
-    runs-on: klakegg/hugo:ext-alpine-ci
+  deploy:
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
           submodules: true
           fetch-depth: 0
 
-      - name: build
-        run: npm i && hugo build --minify
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
-          name: public
-          path: public
-          
-  deploy:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: public
+          node-version: '16.x'
+
+      - name: Install NPM Dependencies
+        run: npm i
+
+      - name: Build
+        run: hugo --minify
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
