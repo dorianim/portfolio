@@ -1,0 +1,60 @@
+{
+  "author": "Varun A P",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "comments": {
+    "dependencies": {
+      "@fullhuman/postcss-purgecss": "project",
+      "@tailwindcss/typography": "project",
+      "autoprefixer": "project",
+      "postcss": "project",
+      "postcss-cli": "project",
+      "postcss-import": "project",
+      "tailwindcss": "project"
+    },
+    "devDependencies": {
+      "@fullhuman/postcss-purgecss": "project",
+      "@tailwindcss/typography": "project",
+      "autoprefixer": "project",
+      "postcss": "project",
+      "postcss-cli": "project",
+      "postcss-import": "project",
+      "tailwindcss": "project"
+    }
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.5",
+    "nmp": "^1.0.3",
+    "npm": "^8.0.0",
+    "postcss": "^8.2.10",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^2.1.1"
+  },
+  "description": "Modern portfolio theme for your Hugo site.",
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.0.3",
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.10",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.1",
+    "tailwindcss": "^2.1.1"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "showfolio",
+  "repository": "https://github.com/apvarun/showfolio",
+  "scripts": {
+    "build": "NODE_ENV=production hugo",
+    "dev": "hugo server --disableFastRender",
+    "start": "hugo --gc"
+  },
+  "version": "1.0.0"
+}
