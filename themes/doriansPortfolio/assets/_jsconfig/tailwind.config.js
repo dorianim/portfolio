@@ -2,12 +2,11 @@ const themeDir = __dirname + "/../../";
 
 module.exports = {
   purge: {
-    enabled: process.env.HUGO_ENVIRONMENT === "production",
+    // purging does not work, as class names are assigend dynamically in some cases
+    enabled: false, // process.env.HUGO_ENVIRONMENT === "production",
     content: [
       themeDir + "layouts/**/*.html",
-      themeDir + "content/**/*.html",
-      "layouts/**/*.html",
-      "content/**/*.html",
+      "layouts/**/*.html"
     ],
   },
   darkMode: "class",
