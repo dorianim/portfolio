@@ -57,5 +57,5 @@
   modularLayout: text
   classes: "text-left"
   content: |
-    ... oder per Handy **[+49 176 42664744](tel:+4917642664744)**  
+    ... oder per Handy **<span style="font-size:1.5em;">[+49 176 42664744](tel:+4917642664744)</span>**  
     <span style="font-size:0.7em;">bitte, ich brauch wirklich eine wohnung</span>

@@ -9,7 +9,7 @@
   modularLayout: alert
   color: yellow
   content: |
-    I'm currently looking for an appartment in Munich. Do you have one available or know someone who does? **[Plase let me know :)](/room-shirt-qr)**
+    I'm currently looking for an appartment in Munich. Do you have one available or know someone who does? **[Plase let me know :)](/room-request)**
 
 03-heroMenu:
   modularLayout: buttonMenu

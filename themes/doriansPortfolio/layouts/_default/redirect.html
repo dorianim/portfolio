@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="mb-16 max-w-5xl mx-auto px-4 prose lg:prose-lg prose-blue dark:prose-dark">
+<meta http-equiv="refresh" content="{{ .Params.redirectDelay }}; url={{ .Params.redirectUrl }}" />
+<h1 class="font-bold text-3xl">Redirecting ...</h1>
+<a href="{{ .Params.redirectUrl }}">Click here if nothing happens</a>
+</article>
+{{ end }}

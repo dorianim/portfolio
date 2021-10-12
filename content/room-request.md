@@ -1,6 +1,6 @@
 ---
 title: Zimmer gesucht 🔎
-modularDataDir: room-shirt-qr
+modularDataDir: room-request
 layout: modular
 ---
 
