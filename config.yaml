@@ -23,6 +23,9 @@ params:
 markup:
   highlight:
     style: "dracula"
+  goldmark:
+    renderer:
+      unsafe: true
 
 languages: 
   de:

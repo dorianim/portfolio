@@ -8,8 +8,6 @@ module.exports = {
       themeDir + "content/**/*.html",
       "layouts/**/*.html",
       "content/**/*.html",
-      "exampleSite/layouts/**/*.html",
-      "exampleSite/content/**/*.html",
     ],
   },
   darkMode: "class",

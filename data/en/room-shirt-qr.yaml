@@ -7,12 +7,11 @@
 
 02-text-top:
   modularLayout: text
-  content: |
-    Ich bin 18 Jahre alt und fange im Wintersemester 2021 an der TUM an, Informatik zu studieren. Ich komme ursprünglich aus Stuttgart und suche fürs Studium eine Wohnung oder ein WG-Zimmer in München.
-
-    Ein bisschen was zu mir: Ich bin leidenschaftlicher Open-Source Entwickler und Speedkletterer. Am Wochenende gehe ich bei gutem Wetter gerne raus zum Wandern, Rad fahren oder klettern. 
+  content: "@@PageContent@@"
     
-    Damit du weißt, worauf du dich einlässt, hier noch ein paar Bilder von mir:
+  # Ich bin 18 Jahre alt und fange im Wintersemester 2021 an der TUM an, Informatik zu studieren. Ich komme ursprünglich aus Stuttgart und suche fürs Studium eine Wohnung oder ein WG-Zimmer in München.
+  # Ein bisschen was zu mir: Ich bin leidenschaftlicher Open-Source Entwickler und Speedkletterer. Am Wochenende gehe ich bei gutem Wetter gerne raus zum Wandern, Rad fahren oder klettern. 
+  #  Damit du weißt, worauf du dich einlässt, hier noch ein paar Bilder von mir:
 
 03-gallery:
   modularLayout: gallery
@@ -26,14 +25,17 @@
       text: "Draußen 🏕️"
 
     -
-      image: "/assets/blueRockIcon.png"
-      text: "More about blueROCK"
-      href: "https://itsblue.de/apps/bluerock"
+      image: "/assets/room-shirt-qr/2.jpg"
+      text: "In den Bergen ⛰️"
+
+04-text-middle:
+  modularLayout: text
+  classes: "text-left"
+  content: |
+    **<span style="font-size:1.5em;">🎉 Herzlichen Glückwunsch!</span>** du hast mich als neuen Mitbewohner gewonnen!
 
 05-contact-form:
   modularLayout: form
-  preContent: |
-    Wenn du ein Zimmer frei hast, schreib mir gerne eine Mail an [hello@dorian.im](mailto:hello@dorian.im) oder schreib mir einfach hier eine Nachricht:
   submitURL: "https://formspree.io/f/mleavkaj"
   items:
     - 
@@ -46,6 +48,14 @@
     -
       blockType: "textarea"
       name: "message" 
-      label: "Eine kurze Nachricht :)" 
+      label: "Wer bist du?"
+      placeholder: "Eine kurze Nachricht :)" 
       required: true
       rows: 4
+
+06-bottom-text:
+  modularLayout: text
+  classes: "text-left"
+  content: |
+    ... oder per Handy **[+49 176 42664744](tel:+4917642664744)**  
+    <span style="font-size:0.7em;">bitte, ich brauch wirklich eine wohnung</span>
