@@ -10,7 +10,6 @@ params:
   description: "Portfolio site of Dorian."
   author: "Dorian"
   authorEmail: "hello@dorian.im"
-  authorImage: "/assets/photo.png"
   autoDarkMode: true
 
   copyright: "Copyright © 2021 - Dorian Zedler · All rights reserved · "

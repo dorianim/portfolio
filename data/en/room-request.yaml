@@ -3,7 +3,7 @@
   title: "Hey 👋 Ich bin Dorian"
   tagline: "Und ich suche ein Zimmer in München"
   contact: "mailto:hello@dorian.im"
-  image: "/assets/photo.png"
+  image: "/assets/photo2.png"
 
 02-text-top:
   modularLayout: text
@@ -36,7 +36,7 @@
 
 05-contact-form:
   modularLayout: form
-  submitURL: "https://formspree.io/f/mleavkaj"
+  submitURL: "https://api.itsblue.de/f/ce95b8ca-4235-40cc-ab6a-4d5387819037"
   items:
     - 
       blockType: input
@@ -44,6 +44,7 @@
       label: "Wie erreiche ich dich?" 
       type: text
       placeholder: "Handynummer / Mailadresse"
+      required: true
 
     -
       blockType: "textarea"

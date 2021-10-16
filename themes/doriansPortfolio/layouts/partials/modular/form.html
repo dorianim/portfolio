@@ -16,7 +16,8 @@
       "label" .label 
       "type" .type
       "placeholder" .placeholder 
-      "rows" .rows) }} 
+      "rows" .rows
+      "required" .required) }} 
       {{ end }} 
       
       {{ partial
@@ -71,14 +72,23 @@
         },
       })
         .then((response) => {
-          statusToast.show("green", "Danke für deine Nachricht!");
-          form.reset();
-          submitButton.setNormal();
+          if(response.ok) {
+            statusToast.show("green", "Danke für deine Nachricht!");
+            form.reset();
+            submitButton.setNormal();
+          }
+          else {
+            statusToast.show(
+              "red",
+              "Oh nein! Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte kontaktiere mich auf einem anderen Weg."
+            );
+            submitButton.setNormal();
+          }
         })
         .catch((error) => {
           statusToast.show(
             "red",
-            "Oops! There was a problem submitting your form"
+            "Oh nein! Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte kontaktiere mich auf einem anderen Weg."
           );
           submitButton.setNormal();
         });

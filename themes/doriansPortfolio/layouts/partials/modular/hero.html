@@ -1,6 +1,6 @@
 <section class="p-4 flex flex-col items-center">
   {{ $authorName := .author }} {{ with .image }}
-  <div class="w-48 h-48 rounded-full mb-6 bg-{{ site.Params.accentColor }}-100">
+  <div class="w-48 h-48 rounded-full mb-6 bg-{{ site.Params.accentColor }}-200 dark:bg-{{ site.Params.accentColor }}-900">
     <img
       src="{{.}}"
       class="w-full p-2 h-full object-contain"
@@ -24,6 +24,7 @@
         left-1/2
         -translate-x-1/2
         text-{{ site.Params.accentColor }}-300
+        dark:text-{{ site.Params.accentColor }}-700
         z-0
         w-full
       "
