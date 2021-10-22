@@ -39,6 +39,24 @@
         <a href="{{ .URL }}" class="{{ if $isCurrentPage }}font-bold{{ end }} hover:text-blue-800 dark:hover:text-blue-300">{{ .Title }}</a>
       {{ end }}
 
+      {{ if .Site.IsMultiLingual }}
+        {{ $node := . }}
+        {{ .Scratch.Set "separator" true }}
+        {{ range (default .Site.Home.AllTranslations .Translations) }}
+          {{ if ne $.Site.Language .Language }}
+            {{ if $node.Scratch.Get "separator" }}
+              <li class="navigation-item menu-separator">
+                <span>|</span>
+              </li>
+              {{ $node.Scratch.Set "separator" false }}
+            {{ end }}
+            <li class="navigation-item">
+              <a href="{{ .Permalink }}">{{ .Language.LanguageName | emojify }}</a>
+            </li>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
       {{/* <div class="flex items-center justify-center w-full mb-12">
   
         <label for="toggleB" class="flex items-center cursor-pointer">

@@ -1,0 +1,11 @@
+pleaseWait:
+  other: "Bitte warten"
+
+thanksForYourMessage:
+  other: "Danke für deine Nachricht!"
+
+errorSubmittingForm:
+  other: "Oh nein! Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte kontaktiere mich auf einem anderen Weg."
+
+viewSourceOnGitHub:
+  other: "Quelltext auf GitHub"

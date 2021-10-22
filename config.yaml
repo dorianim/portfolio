@@ -1,17 +1,15 @@
 theme: "doriansPortfolio"
-languageCode: "en-us"
+languageCode: "en"
 baseurl: "https://dorian.im"
 title: "Dorian"
 defaultContentLanguage: en
 
 params:
   name: "Dorian"
-  description: "Portfolio site of Dorian."
   author: "Dorian"
   authorEmail: "hello@dorian.im"
   autoDarkMode: true
 
-  copyright: "Copyright © 2021 - Dorian Zedler · All rights reserved · "
   githubHref: "https://github.com/dorianim/portfolio"
   favicon: "favicon.ico"
 
@@ -27,6 +25,13 @@ markup:
 
 languages: 
   de:
-    title: "Dorian"
+    languageName: ":de:"
+    params:
+      description: "Portfolio von Dorian."
+      copyright: "Copyright © 2021 - Dorian Zedler · Alle Rechte vorbehalten · "
+      
   en:
-    title: "Dorian"
+    languageName: ":uk:"
+    params:
+      description: "Portfolio site of Dorian."
+      copyright: "Copyright © 2021 - Dorian Zedler · All rights reserved · "

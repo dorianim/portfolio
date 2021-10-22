@@ -59,11 +59,26 @@
       this.innerHTML = "";
     };
 
+    function success(response) {
+      statusToast.show("green", '{{ i18n "thanksForYourMessage" }}');
+      form.reset();
+      submitButton.setNormal();
+    }
+
+    function error(response) {
+      statusToast.show(
+        "red",
+        '{{ i18n "errorSubmittingForm" }}'
+      );
+      submitButton.setNormal();
+    }
+
     async function handleSubmit(event) {
       event.preventDefault();
       submitButton.setLoading();
-      statusToast.show("blue", "Einen Moment ...");
+      statusToast.show("blue", '{{ i18n "pleaseWait" }} ...');
       var data = new FormData(form);
+
       fetch("{{ .submitURL }}", {
         method: form.method,
         body: data,
@@ -71,26 +86,11 @@
           Accept: "application/json",
         },
       })
-        .then((response) => {
-          if(response.ok) {
-            statusToast.show("green", "Danke für deine Nachricht!");
-            form.reset();
-            submitButton.setNormal();
-          }
-          else {
-            statusToast.show(
-              "red",
-              "Oh nein! Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte kontaktiere mich auf einem anderen Weg."
-            );
-            submitButton.setNormal();
-          }
+        .then((r) => {
+          r.ok ? success(r) : error(r)
         })
         .catch((error) => {
-          statusToast.show(
-            "red",
-            "Oh nein! Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte kontaktiere mich auf einem anderen Weg."
-          );
-          submitButton.setNormal();
+          error(response)
         });
     }
     form.addEventListener("submit", handleSubmit);

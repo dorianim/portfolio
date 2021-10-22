@@ -3,3 +3,4 @@ Itsblue
 Formrecevr
 hugo-mx-gateway
 formspree.io
+Zedler
