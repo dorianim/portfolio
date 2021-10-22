@@ -4,7 +4,7 @@ menu:
   main:
     title: Imprint
     name: Imprint
-    weight: 2
+    weight: 99
 ---
 
 Responsible for the contents of this website:  

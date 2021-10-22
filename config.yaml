@@ -4,7 +4,6 @@ baseurl: "https://dorian.im"
 title: "Dorian"
 defaultContentLanguage: en
 
-
 params:
   name: "Dorian"
   description: "Portfolio site of Dorian."
