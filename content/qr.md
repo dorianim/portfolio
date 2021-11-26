@@ -1,5 +1,5 @@
 ---
 layout: redirect
-redirectUrl: "/room-request"
+redirectUrl: "/de/room-request"
 redirectDelay: "0"
 ---

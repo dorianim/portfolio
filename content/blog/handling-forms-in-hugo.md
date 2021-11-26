@@ -1,7 +1,7 @@
 ---
 author: Dorian
 title: Handling forms in Hugo
-date: 2021-10-18
+date: 2021-11-26
 authorEmail: mail@dorian.im
 ---
 
@@ -13,9 +13,8 @@ The project [hugo-mx-gateway](https://github.com/rchakode/hugo-mx-gateway) was m
 
 - There is only a limited number of fields, which cannot be extended ([see here](https://github.com/rchakode/hugo-mx-gateway/blob/73a3eb02669dce7e5edec7bd4ef76c4d8c51aad7/sendmail.go#L215))
 - It can only submit forms via SMTP
-- It uses the mail address submitted in the form as the sender address, which makes it impossible to send emails which are accepted by modern mail servers ([see here](https://github.com/rchakode/hugo-mx-gateway/issues/6))
 
-To sum it up: This projects looks nice at first glance, but is far too unflexible to be useful in a real-world scenario. And because of the sender address problem, I couldn't use it at all.
+To sum it up: This projects looks nice at first glance, but is far too unflexible to be useful in a real-world scenario.
 
 #### formspree.io
 [formspree.io](https://formspree.io) was the next thing I tried. It has a free plan and is simple and straight forward to use. It even comes with some examples, so you can be up and running quickly. Unfortunately, it also comes with some drawbacks:

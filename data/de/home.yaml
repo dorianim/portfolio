@@ -45,3 +45,30 @@
       image: "/assets/blueRockIcon.png"
       text: "Mehr über blueROCK"
       href: "https://itsblue.de/apps/bluerock"
+
+04-text-middle:
+  modularLayout: text
+  classes: "text-left"
+  content: |
+    ## Kontakt
+    Hast du Fragen oder Anregugen? Schreib mir gerne hier eine Nachricht:
+
+05-contact-form:
+  modularLayout: form
+  submitURL: "https://api.itsblue.de/f/ce95b8ca-4235-40cc-ab6a-4d5387819037"
+  items:
+    - 
+      blockType: input
+      name: contact
+      label: "Wie erreiche ich dich?" 
+      type: text
+      placeholder: "Handynummer / Mailadresse"
+      required: true
+
+    -
+      blockType: "textarea"
+      name: "message" 
+      label: "Was möchtest du mir erzählen?"
+      placeholder: "Deine Nachricht :)" 
+      required: true
+      rows: 4

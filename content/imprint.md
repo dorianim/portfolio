@@ -13,4 +13,4 @@ mail@dorian.im
 
 ### Privacy
 - This website is hosted on GitHub Pages. You can find their privacy policy over here: [https://docs.github.com/en/github/site-policy/github-privacy-statement](https://docs.github.com/en/github/site-policy/github-privacy-statement)
-- Form submissions are handled by my self-hosted [formrecevr](https://github.com/dorianim/formrecevr) and forwarded to my via E-Mail.
+- Form submissions are handled by my self-hosted [formrecevr](https://github.com/dorianim/formrecevr) and forwarded to me via E-Mail.
