@@ -11,7 +11,7 @@
     </a>
 </p>
 
-This is my personal portfolio website, based on Hugo.
+This is my personal portfolio website, built with Hugo.
 
 # Building
 - Live updates and webserver on port 1313: `make watch`
