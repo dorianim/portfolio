@@ -8,10 +8,10 @@ GID := $(shell id -g)
 
 all: pull build
 watch:
-	docker run --rm -it --user $(UID) -p 1313:1313 -v ${PWD}:/src klakegg/hugo:ext-alpine-ci bash -c "npm i && hugo server"
+	docker run --rm -it -p 1313:1313 -v ${PWD}:/src klakegg/hugo:ext-alpine-ci bash -c "env && npm i && hugo server"
 pull:
 	docker pull klakegg/hugo:ext-alpine-ci
 build:
-	docker run --rm -it --user $(UID) -v ${PWD}:/src klakegg/hugo:ext-alpine-ci bash -c "npm i && hugo build --minify"
+	docker run --rm -it -v ${PWD}:/src klakegg/hugo:ext-alpine-ci bash -c "npm i && hugo build --minify"
 clean:
 	rm -rf $(PWD)/node_modules $(PWD)/resources $(PWD)/public

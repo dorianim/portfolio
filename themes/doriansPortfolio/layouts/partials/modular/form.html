@@ -23,7 +23,7 @@
       {{ partial
       "form/button.html" (dict 
       "ctx" . 
-      "label" "Absenden" 
+      "label" (i18n "submit")
       "id" "submit-button"
       "type" "submit" ) }}
     </div>
@@ -41,7 +41,7 @@
 
     submitButton.setNormal = function () {
       this.classList.remove("disabled");
-      this.innerHTML = "Absenden";
+      this.innerHTML = "{{ i18n "submit" }}";
     };
 
     statusToast.show = function (type, content) {

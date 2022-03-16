@@ -9,3 +9,6 @@ errorSubmittingForm:
 
 viewSourceOnGitHub:
   other: "Quelltext auf GitHub"
+
+submit:
+  other: "Absenden"

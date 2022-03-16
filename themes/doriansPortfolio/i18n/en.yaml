@@ -9,3 +9,6 @@ errorSubmittingForm:
 
 viewSourceOnGitHub:
   other: "View my source on GitHub"
+
+submit:
+  other: "Submit"
