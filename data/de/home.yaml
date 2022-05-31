@@ -9,9 +9,10 @@
   modularLayout: buttonMenu
   items:
     -
-      icon: "fas fa-envelope"
-      text: "Kontaktiere mich"
-      href: "mailto:hello@dorian.im"
+      icon: "fab fa-mastodon"
+      text: "Fediverse"
+      href: "https://troet.social/@dorian"
+      rel: "me"
 
     -
       icon: "fab fa-gitlab"
