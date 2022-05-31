@@ -9,11 +9,11 @@
   modularLayout: buttonMenu
   items:
     -
-      icon: "fas fa-envelope"
+      icon: "fab fa-mastodon"
       text: "Fediverse"
       href: "https://troet.social/@dorian"
-      rel: me
-      
+      rel: "me"
+
     -
       icon: "fab fa-gitlab"
       text: "blue.code"
