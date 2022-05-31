@@ -10,9 +10,10 @@
   items:
     -
       icon: "fas fa-envelope"
-      text: "Contact me"
-      href: "mailto:hello@dorian.im"
-
+      text: "Fediverse"
+      href: "https://troet.social/@dorian"
+      rel: me
+      
     -
       icon: "fab fa-gitlab"
       text: "blue.code"
