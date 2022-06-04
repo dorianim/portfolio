@@ -49,7 +49,7 @@
 
 04-text-middle:
   modularLayout: text
-  classes: "text-left"
+  classes: "text-left pb-6"
   content: |
     ## Kontakt
     Hast du Fragen oder Anregugen? Schreib mir gerne hier eine Nachricht:
@@ -73,3 +73,17 @@
       placeholder: "Deine Nachricht :)" 
       required: true
       rows: 4
+
+06-text-middle:
+  modularLayout: text
+  classes: "text-left pt-6 pb-0"
+  content: |
+    ## Webringe
+    [Was ist ein Webring?](https://en.wikipedia.org/wiki/Webring)
+
+07-webrings:
+  modularLayout: webring
+  previous: "https://fediring.net/previous?host=dorian.im"
+  next: "https://fediring.net/next?host=dorian.im"
+  homePage: "https://fediring.net"
+  text: "Fediring"

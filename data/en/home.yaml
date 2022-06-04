@@ -49,7 +49,7 @@
 
 04-text-middle:
   modularLayout: text
-  classes: "text-left"
+  classes: "text-left p-6"
   content: |
     ## Contact
     Do you have a question or just want to say hello? Feel free to drop me a message:
@@ -57,6 +57,7 @@
 05-contact-form:
   modularLayout: form
   submitURL: "https://api.itsblue.de/f/ce95b8ca-4235-40cc-ab6a-4d5387819037"
+  classes: "pt-0"
   items:
     - 
       blockType: input
@@ -73,3 +74,17 @@
       placeholder: "Your message :)" 
       required: true
       rows: 4
+
+06-text-middle:
+  modularLayout: text
+  classes: "text-left pt-6 pb-0"
+  content: |
+    ## Webrings
+    [What is a webring?](https://en.wikipedia.org/wiki/Webring)
+
+07-webrings:
+  modularLayout: webring
+  previous: "https://fediring.net/previous?host=dorian.im"
+  next: "https://fediring.net/next?host=dorian.im"
+  homePage: "https://fediring.net"
+  text: "Fediring"

@@ -18,17 +18,22 @@
   {{ end -}}
   {{ hugo.Generator }}
 
-  {{- $styles := resources.Get "css/styles.css" | postCSS -}}
-  {{- if .Site.IsServer }}
-  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
-  {{ else }}
-  {{- $styles := $styles| minify | fingerprint | resources.PostProcess -}}
-  <link
-    rel="stylesheet"
-    href="{{ $styles.Permalink }}"
-    integrity="{{ $styles.Data.Integrity }}"
-  />
-  {{ end -}}
+  {{- $styles := slice (resources.Get "css/styles.css" | postCSS) (resources.Get "css/site.css" | postCSS) -}}
+  {{ $ctx := . }}
+
+  {{ range $styles }}
+    {{- if $ctx.Site.IsServer }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+    {{ else }}
+    {{- $styles := . | minify | fingerprint | resources.PostProcess -}}
+    <link
+      rel="stylesheet"
+      href="{{ .Permalink }}"
+      integrity="{{ .Data.Integrity }}"
+    />
+    {{ end -}}
+  {{ end }}
+
   <link href="/fontawesome/all.min.css" rel="stylesheet">
 
   {{ if .Site.Params.autoDarkMode }}
