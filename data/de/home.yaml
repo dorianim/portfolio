@@ -1,7 +1,7 @@
 01-hero:
   modularLayout: hero
   title: "Hey 👋 Ich bin Dorian"
-  tagline: "Speedkletterer und Softwareentwickler"
+  tagline: "Speedkletterer und Informatik-Student"
   contact: "mailto:hello@dorian.im"
   image: "/assets/photo2.png"
 

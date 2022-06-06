@@ -1,7 +1,7 @@
 01-hero:
   modularLayout: hero
   title: "Hey 👋 I'm Dorian"
-  tagline: "Speedclimber and software developer"
+  tagline: "Speedclimber and CS-student"
   contact: "mailto:hello@dorian.im"
   image: "/assets/photo2.png"
   
@@ -49,7 +49,7 @@
 
 04-text-middle:
   modularLayout: text
-  classes: "text-left p-6"
+  classes: "text-left pb-6"
   content: |
     ## Contact
     Do you have a question or just want to say hello? Feel free to drop me a message:
