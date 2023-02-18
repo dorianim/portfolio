@@ -20,6 +20,7 @@
       "required" .required) }} 
       {{ end }} 
       
+      <div class="h-captcha" data-sitekey="b586c42e-b3cd-4432-aea8-17efea9ff29d" data-theme="dark"></div>
       {{ partial
       "form/button.html" (dict 
       "ctx" . 
@@ -30,6 +31,7 @@
     <input type="hidden" name="pageTitle" value="{{ .page.Kind }}:{{ .page.Title }}"/>
   </form>
 
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <script>
     var form = document.getElementById("contact-form");
     var statusToast = document.getElementById("status-toast");
