@@ -1,8 +1,0 @@
-{{ define "main" }}
-  {{ $pageObj := . }}
-  {{ with partial "modular/_dataGetter.html" . }}
-    {{ range . }}
-      {{ partial (print "modular/" .modularLayout ".html") (merge . (dict "page" $pageObj) ) }}
-    {{ end }}
-  {{ end }}
-{{ end }}
