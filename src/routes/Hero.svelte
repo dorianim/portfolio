@@ -41,9 +41,35 @@
 		github: 'https://github.com/dorianim',
 		instagram: 'https://instagram.com/dorian.cpp'
 	};
+
+	const handleScroll = () => {
+		if (!element) return;
+
+		const elementPosition = window.scrollY - element.scrollTop;
+
+		scrollProgress =
+			(elementPosition > 0
+				? elementPosition > element.scrollHeight
+					? element.scrollHeight
+					: elementPosition
+				: 0) / element.scrollHeight;
+		console.log(scrollProgress);
+	};
+
+	let element: HTMLElement | undefined;
+	let scrollProgress = 0;
+
+	$: {
+		if (!element) break $;
+
+		window.addEventListener('scroll', handleScroll);
+	}
 </script>
 
-<div class="w-full flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12">
+<div
+	bind:this={element}
+	class="w-full flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
+>
 	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<h1 class="text-3xl text-gray-600 tracking-loose">Hi, I am</h1>
 		<h2 class="text-5xl font-bold leading-relaxed md:leading-snug">Dorian Zedler</h2>
@@ -63,7 +89,9 @@
 				</div>
 			{:else}
 				<div
-					class="block grow-[0.7] aspect-[1/2] overflow-clip drop-shadow-2xl rounded-full -rotate-12"
+					class="block grow-[0.6] aspect-[1/2] overflow-clip drop-shadow-2xl rounded-full"
+					style="transform: rotate(-12deg) translateY({50 * (i === 0 ? 1 : -1) +
+						200 * scrollProgress * (i === 0 ? -1 : 1)}px);"
 				>
 					<div
 						class="h-full ml-[-25%] w-[150%] rotate-12 bg-cover bg-left"
