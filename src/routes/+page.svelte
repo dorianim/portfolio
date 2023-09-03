@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Counts from '../components/Counts.svelte';
 	import Hero from './Hero.svelte';
 	import Speedclimbing from './Speedclimbing.svelte';
 </script>

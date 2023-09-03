@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Counts from '../components/Counts.svelte';
+
 	type CompType = 'SouthGerman' | 'German' | 'EYC' | 'YWCH' | 'EC' | 'ECH' | 'EGA' | 'WC';
 
 	const results: {
@@ -30,15 +32,10 @@
 
 <span class="text-4xl font-bold">Speedclimbing</span>
 
+<Counts />
+
 <div class="w-full justify-between flex flex-row flex-wrap">
-	<div class="w-[40%]">
-		Some comp results:
-		<ul>
-			{#each results as result}
-				<li>{result.rank} {result.type} {result.location} {result.date.toDateString()}</li>
-			{/each}
-		</ul>
-	</div>
+	<div class="w-[40%]">Some stats:</div>
 
 	<div class="w-[40%]">Blablabalabla</div>
 </div>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SkillList from '../components/SkillList.svelte';
+	import SocialMediaButtons from '../components/SocialMediaButtons.svelte';
 
 	const coreSkills = [
 		{
@@ -33,21 +34,22 @@
 			position: 'center'
 		}
 	];
+
+	const socialMedia = {
+		mastodon: 'https://tum.social/@dorian',
+		git: 'https://itsblue.dev/dorian',
+		github: 'https://github.com/dorianim',
+		instagram: 'https://instagram.com/dorian.cpp'
+	};
 </script>
 
 <div class="w-full flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12">
-	<div class="flex flex-col gap-3 w-full lg:w-1/3 justify-center items-start">
+	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<h1 class="text-3xl text-gray-600 tracking-loose">Hi, I am</h1>
-		<h2 class="text-6xl font-bold leading-relaxed md:leading-snug">Dorian Zedler</h2>
+		<h2 class="text-5xl font-bold leading-relaxed md:leading-snug">Dorian Zedler</h2>
 
 		<SkillList skills={coreSkills} class="hidden lg:block" />
-
-		<a
-			href="#"
-			class="hidden lg:block bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg mt-3 py-2 px-4 border border-yellow-300 hover:border-transparent"
-		>
-			Learn more about me
-		</a>
+		<SocialMediaButtons {...socialMedia} class="hidden lg:flex" />
 	</div>
 
 	<div class="px-[3%] grow flex gap-[7%] items-center content-center">
@@ -72,14 +74,8 @@
 		{/each}
 	</div>
 
-	<div class="flex lg:hidden z-50 flex-col gap-3 w-full lg:w-1/3 justify-center items-start">
+	<div class="flex lg:hidden z-50 flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<SkillList skills={coreSkills} />
-
-		<a
-			href="#"
-			class="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg mt-3 py-2 px-4 border border-yellow-300 hover:border-transparent"
-		>
-			Learn more about me
-		</a>
+		<SocialMediaButtons {...socialMedia} />
 	</div>
 </div>
