@@ -12,6 +12,7 @@
 	import Copyright from 'svelte-material-icons/Copyright.svelte';
 	import Close from 'svelte-material-icons/Close.svelte';
 	import ChevronLeft from 'svelte-material-icons/ChevronLeft.svelte';
+	import ChevronRight from 'svelte-material-icons/ChevronRight.svelte';
 	import { mod } from '$lib/mod';
 
 	export let images: Image[];
@@ -52,26 +53,29 @@
 			</span>
 		{/if}
 
-		<button
-			class="absolute top-[50%] left-0 translate-y-[-50%] translate-x-[-10vw] h-[100%] w-[50%] text-white text-4xl"
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div
+			class="absolute top-[50%] left-0 translate-y-[-50%] translate-x-[-9vw] h-[100%] w-[50%] text-white text-4xl cursor-pointer"
 			on:click={() => (showImage = mod((showImage ?? 0) - 1, images.length))}
 		>
-			<ChevronLeft />
-		</button>
+			<ChevronLeft class="absolute left-0 top-[50%] translate-y-[-50%]" />
+		</div>
 
-		<button
-			class="absolute top-[50%] right-0 translate-y-[-50%] translate-x-[10vw] h-[100%] w-[50%] text-white text-4xl rotate-180"
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div
+			class="absolute top-[50%] right-0 translate-y-[-50%] translate-x-[9vw] h-[100%] w-[50%] text-white text-4xl cursor-pointer"
 			on:click={() => (showImage = mod((showImage ?? 0) + 1, images.length))}
 		>
-			<ChevronLeft />
-		</button>
+			<ChevronRight class="absolute right-0 top-[50%] translate-y-[-50%]" />
+		</div>
 
-		<button
-			class="absolute top-0 right-0 text-white text-4xl translate-x-[10vw] translate-y-[-10vh]"
+		<!-- svelte-ignore a11y-no-static-element-interactions -->
+		<div
+			class="absolute top-0 right-0 text-white text-4xl cursor-pointer"
 			on:click={() => (showImage = undefined)}
 		>
 			<Close />
-		</button>
+		</div>
 	</div>
 </dialog>
 
