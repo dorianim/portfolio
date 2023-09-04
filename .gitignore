@@ -1,5 +1,11 @@
-resources/
-node_modules/
-public/
+.DS_Store
+node_modules
+/build
+/.svelte-kit
+/package
+.env
+.env.*
 .npm
-.hugo_build.lock
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
