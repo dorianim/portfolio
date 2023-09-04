@@ -151,6 +151,8 @@
 		}, {} as Record<number, typeof results>)
 	).sort(([a], [b]) => parseInt(b) - parseInt(a));
 
+	const images = [];
+
 	const compTypeString = (type: CompType): string => {
 		switch (type) {
 			case 'SGCH':
@@ -175,11 +177,11 @@
 	};
 </script>
 
-<span class="text-4xl font-bold text-white">Speedclimbing</span>
+<span class="text-4xl font-bold text-white" id="speedclimbing">Speedclimbing</span>
 
 <Counts />
 
-<div class="p-6 w-full flex flex-col lg:flex-row gap-10 justify-between">
+<div class="p-6 w-full flex flex-col xl:flex-row gap-10 justify-between">
 	<div class="flex flex-col gap-2">
 		<span class="text-xl font-bold text-white">My story...</span>
 		<p class="">
@@ -206,7 +208,7 @@
 			Wanna know how the story goes on? Follow me on Instagram to stay up to date!
 		</p>
 		<span class="text-xl font-bold text-white">Get to know me better</span>
-		<div class="grid grid-cols-1 xl:grid-cols-2 gap-3">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
 			{#each videos as video}
 				<a class="flex flex-col" href={video.url} target="_blank">
 					<img class="w-full" src={video.thumbnail} alt="video tumbnail" />
@@ -216,7 +218,7 @@
 			{/each}
 		</div>
 	</div>
-	<div class="min-w-[400px]">
+	<div class="min-w-[200px] md:min-w-[400px]">
 		<span class="text-xl font-bold text-white">Recent competition results:</span>
 		<ol class="relative border-l border-gray-200 dark:border-gray-700 pt-2">
 			{#each resultsByYear as [year, results]}
@@ -260,4 +262,8 @@
 			{/each}
 		</ol>
 	</div>
+</div>
+
+<div>
+	<span class="text-xl font-bold text-white">Gallery</span>
 </div>

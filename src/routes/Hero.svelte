@@ -6,14 +6,17 @@
 
 	const coreSkills = [
 		{
+			id: 'speedclimbing',
 			text: 'Speedclimber',
 			icon: '/hero/speed_hold.png'
 		},
 		{
+			id: 'it',
 			text: 'Software Developer',
 			icon: '/hero/technologist.png'
 		},
 		{
+			id: 'study',
 			text: 'CS-Student',
 			icon: '/hero/student.png'
 		}
@@ -59,7 +62,7 @@
 	class="w-full flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
 >
 	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
-		<h1 class="text-3xl text-gray-600 tracking-loose">Hi, I am</h1>
+		<h1 class="text-3xl tracking-loose">Hi, I am</h1>
 		<h2 class="text-5xl font-bold text-white leading-relaxed md:leading-snug">Dorian Zedler</h2>
 
 		<SkillList skills={coreSkills} class="hidden lg:block" />
