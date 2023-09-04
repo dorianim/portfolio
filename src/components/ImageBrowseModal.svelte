@@ -28,20 +28,22 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
 <dialog
-	class="bg-transparent"
+	class="bg-transparent overflow-visible"
 	bind:this={dialog}
 	on:close={() => (showImage = undefined)}
 	on:click|self={() => dialog.close()}
 >
-	<div class="h-[90vh] w-[80vw] flex flex-col items-center gap-4">
+	<div class="h-[80vh] w-[80vw] flex flex-col items-center justify-center gap-4 overflow-visible">
 		{#if showImage !== undefined}
-			<span class="flex flex-row gap-2 items-center text-white">
+			<span class="flex flex-col md:flex-row gap-2 items-center text-white">
 				{images[showImage].description}
-				<Copyright />
-				{images[showImage].copyright}
+				<span class="flex flex-row items-center text-sm">
+					<Copyright />
+					{images[showImage].copyright}</span
+				>
 			</span>
 			<img
-				class="h-full object-contain"
+				class="max-h-[80%] max-w-full object-contain"
 				src={images[showImage].src}
 				alt="{images[showImage].description}, (C) {images[showImage].copyright}"
 			/>
@@ -51,21 +53,21 @@
 		{/if}
 
 		<button
-			class="absolute top-[50%] left-0 translate-y-[-50%] h-[100%] w-[50%] text-white text-4xl"
+			class="absolute top-[50%] left-0 translate-y-[-50%] translate-x-[-10vw] h-[100%] w-[50%] text-white text-4xl"
 			on:click={() => (showImage = mod((showImage ?? 0) - 1, images.length))}
 		>
 			<ChevronLeft />
 		</button>
 
 		<button
-			class="absolute top-[50%] right-0 translate-y-[-50%] h-[100%] w-[50%] text-white text-4xl rotate-180"
+			class="absolute top-[50%] right-0 translate-y-[-50%] translate-x-[10vw] h-[100%] w-[50%] text-white text-4xl rotate-180"
 			on:click={() => (showImage = mod((showImage ?? 0) + 1, images.length))}
 		>
 			<ChevronLeft />
 		</button>
 
 		<button
-			class="absolute top-0 right-0 text-white text-4xl"
+			class="absolute top-0 right-0 text-white text-4xl translate-x-[10vw] translate-y-[-10vh]"
 			on:click={() => (showImage = undefined)}
 		>
 			<Close />
