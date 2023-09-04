@@ -3,6 +3,7 @@
 	import SkillList from '../components/SkillList.svelte';
 	import SocialMediaButtons from '../components/SocialMediaButtons.svelte';
 	import { getScrollProgress } from '$lib/scroll';
+	import ImagePill from '../components/ImagePill.svelte';
 
 	const coreSkills = [
 		{
@@ -54,11 +55,13 @@
 		window.addEventListener('scroll', () => {
 			scrollProgress = getScrollProgress(element);
 		});
+		scrollProgress = getScrollProgress(element);
 	});
 </script>
 
 <div
 	bind:this={element}
+	id="hero"
 	class="w-full flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
 >
 	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
@@ -72,23 +75,15 @@
 	<div class="px-[3%] grow flex gap-[7%] items-center content-center">
 		{#each images as image, i}
 			{#if i === 1}
-				<div class="block grow aspect-[1/2] overflow-clip drop-shadow-2xl rounded-full -rotate-12">
-					<div
-						class="h-full ml-[-25%] w-[150%] rotate-12 bg-cover bg-center"
-						style="background-image: url('{image.src}')"
-					/>
-				</div>
+				<ImagePill src={image.src} class="grow" />
 			{:else}
-				<div
-					class="block grow-[0.6] aspect-[1/2] overflow-clip drop-shadow-2xl rounded-full"
-					style="transform: rotate(-12deg) translateY({50 * (i === 0 ? 1 : -1) +
-						200 * scrollProgress * (i === 0 ? -1 : 1)}px);"
-				>
-					<div
-						class="h-full ml-[-25%] w-[150%] rotate-12 bg-cover bg-left"
-						style="background-image: url('{image.src}')"
-					/>
-				</div>
+				<ImagePill
+					src={image.src}
+					class="grow-[0.6]"
+					innerClass="bg-left"
+					style="transform: rotate(-12deg) translateY({150 * (i === 0 ? 1 : -1) +
+						300 * scrollProgress * (i === 0 ? -1 : 1)}px);"
+				/>
 			{/if}
 		{/each}
 	</div>

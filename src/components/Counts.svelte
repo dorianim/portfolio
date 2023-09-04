@@ -63,9 +63,9 @@
 	};
 
 	$: scrollProgress = getScrollProgress(element);
-	$: console.log(scrollProgress);
+
 	$: {
-		if (scrollProgress > 0.5) {
+		if (scrollProgress > 0.2) {
 			animateNumbers();
 		}
 	}

@@ -6,6 +6,9 @@
 	import PodiumBronze from 'svelte-material-icons/PodiumBronze.svelte';
 	import Web from 'svelte-material-icons/Web.svelte';
 	import CircleSmall from 'svelte-material-icons/CircleSmall.svelte';
+	import TelevisionClassic from 'svelte-material-icons/TelevisionClassic.svelte';
+	import ImagePill from '../components/ImagePill.svelte';
+	import PillGallery from '../components/PillGallery.svelte';
 
 	type CompType = 'SGCH' | 'GCH' | 'EYC' | 'YWCH' | 'UWCH' | 'EC' | 'ECH' | 'EGA' | 'WC';
 	type CompResult = {
@@ -15,23 +18,26 @@
 		rank: number;
 	};
 
-	const videos: {
+	const press: {
 		url: string;
 		thumbnail: string;
 		title: string;
 		subtitle?: string;
+		type: 'video' | 'article';
 	}[] = [
 		{
 			url: 'https://www.youtube.com/watch?v=idNTl3PYWo8',
 			thumbnail: '/speedclimbing/thumbnail_swr_youtube_23.jpg',
 			title: 'Speedkletterer Dorian Zedler',
-			subtitle: 'Portrait by SWR Sport'
+			subtitle: 'Portrait by SWR Sport',
+			type: 'video'
 		},
 		{
 			url: 'https://www.swrfernsehen.de/landesschau-bw/deutsche-meisterschaft-im-speedklettern-100.html',
 			thumbnail: '/speedclimbing/thumbnail_gch_23.png',
 			title: 'Deutsche Meisterschaft im Speedklettern',
-			subtitle: 'Documentary about the German championships 2023 by SWR Sport'
+			subtitle: 'Report about the German championships 2023 by SWR Sport',
+			type: 'video'
 		}
 	];
 
@@ -151,8 +157,6 @@
 		}, {} as Record<number, typeof results>)
 	).sort(([a], [b]) => parseInt(b) - parseInt(a));
 
-	const images = [];
-
 	const compTypeString = (type: CompType): string => {
 		switch (type) {
 			case 'SGCH':
@@ -175,6 +179,39 @@
 				return 'World Cup';
 		}
 	};
+
+	// ls --quoting-style={escape,shell,c} -1 static/speedclimbing/gallery | sed '$!s/$/,/'
+	const images = [
+		'EC_Hamburg-22-1_DAV_*.jpg',
+		'EC_Hamburg-23-2_DAV.jpg',
+		'ECH_Munich-22-1_DAV.jpg',
+		'ECH_Munich-22-2_DAV.jpg',
+		'ECH_Munich-22-3_DAV_*.jpg',
+		'ECH_Munich-22-4_DAV.jpg',
+		'EGA_Krakow-23-1_teamdeutschland.jpg',
+		'EGA_Krakow-23-2_teamdeutschland_*.jpg',
+		'EGA_Krakow-23-3_teamdeutschland.jpg',
+		'GCH_Bochum-23-1_DAV%2FThomas%20Schermer.jpg',
+		'GCH_Bochum-23-2_DAV%2FThomas%20Schermer_*.jpg',
+		'GCH_Ulm-23-1_DAV%2FMarco%20Kost_*.jpg',
+		'WC_Chamonix_23_1_IFSC.jpg',
+		'WC_Villars-23-1_Viviana%20Lucke.jpg',
+		'WC_Villars-23-2_Viviana%20Lucke.jpg'
+	].map((el) => {
+		const data = el.split('.')[0].split('_');
+		const type = data[0] as CompType;
+		const location = data[1].split('-')[0];
+		const year = data[1].split('-')[1];
+		const copyright = data[2];
+		const elevate = data.includes('*');
+
+		return {
+			src: `/speedclimbing/gallery/${encodeURIComponent(el)}`,
+			elevate: elevate,
+			copyright: decodeURIComponent(copyright),
+			description: `${compTypeString(type)} ${location} ${year}`
+		};
+	});
 </script>
 
 <span class="text-4xl font-bold text-white" id="speedclimbing">Speedclimbing</span>
@@ -207,13 +244,20 @@
 			<br />
 			Wanna know how the story goes on? Follow me on Instagram to stay up to date!
 		</p>
-		<span class="text-xl font-bold text-white">Get to know me better</span>
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-			{#each videos as video}
-				<a class="flex flex-col" href={video.url} target="_blank">
-					<img class="w-full" src={video.thumbnail} alt="video tumbnail" />
-					<span class="text-lg font-bold">{video.title}</span>
-					<span>{video.subtitle}</span>
+		<span class="text-xl font-bold text-white">In the press</span>
+		<div class="grid grid-cols-1 gap-3">
+			{#each press as item}
+				<a
+					class="grid grid-cols-[8rem_auto] items-center border-gray-700 border rounded-lg relative overflow-clip h-min gap-3"
+					href={item.url}
+					target="_blank"
+				>
+					<img class="h-full rounded-lg object-cover" src={item.thumbnail} alt="thumbnail" />
+
+					<div class="flex flex-col p-3">
+						<span class="text-lg font-bold">{item.title}</span>
+						<span>{item.subtitle}</span>
+					</div>
 				</a>
 			{/each}
 		</div>
@@ -264,6 +308,6 @@
 	</div>
 </div>
 
-<div>
-	<span class="text-xl font-bold text-white">Gallery</span>
-</div>
+<PillGallery {images} columns={6} />
+
+<div class="h-[1000px] w-full" />
