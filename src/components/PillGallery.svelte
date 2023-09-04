@@ -9,6 +9,7 @@
 		copyright: string;
 		description: string;
 		elevate?: boolean;
+		alignment: 'l' | 'r' | 'c';
 	};
 
 	export let images: Image[];
@@ -30,10 +31,14 @@
 		return images[i * Math.floor(images.length / columnCount) + j];
 	};
 
+	const getAlignmentClass = (image: Image) => {
+		if (image.alignment === 'l') return 'bg-left';
+		if (image.alignment === 'r') return 'bg-right';
+		return 'bg-center';
+	};
+
 	$: columnCount = Math.min(images.length, columns);
 </script>
-
-<span class="text-xl font-bold text-white">Gallery</span>
 
 <div class="lg:p-8 xl:p-12" bind:this={element}>
 	<div class="flex flex-row gap-2 justify-center content-center w-full">
@@ -48,9 +53,14 @@
 								src={getImage(i, j).src}
 								style="transform: rotate(-12deg) translateY({element?.offsetHeight * 0.1 +
 									-element?.offsetHeight * 0.3 * scrollProgress}px);"
+								innerClass={getAlignmentClass(getImage(i, j))}
 							/>
 						{:else}
-							<ImagePill class="w-[60%] z-0" src={getImage(i, j).src} />
+							<ImagePill
+								class="w-[60%] z-0"
+								src={getImage(i, j).src}
+								innerClass={getAlignmentClass(getImage(i, j))}
+							/>
 						{/if}
 					</a>
 				{/each}

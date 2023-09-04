@@ -8,7 +8,7 @@
 </script>
 
 <div
-	class="block aspect-[1/2] overflow-clip drop-shadow-2xl rounded-full {rotate &&
+	class="block aspect-[1/2] overflow-clip drop-shadow-lg rounded-full {rotate &&
 		'-rotate-12'} {clazz}"
 	{style}
 >

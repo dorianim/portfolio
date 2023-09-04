@@ -182,34 +182,45 @@
 
 	// ls --quoting-style={escape,shell,c} -1 static/speedclimbing/gallery | sed '$!s/$/,/'
 	const images = [
-		'EC_Hamburg-22-1_DAV_*.jpg',
-		'EC_Hamburg-23-2_DAV.jpg',
-		'ECH_Munich-22-1_DAV.jpg',
-		'ECH_Munich-22-2_DAV.jpg',
-		'ECH_Munich-22-3_IFSC%2FDimitris%20Tosidis_*.jpg',
-		'ECH_Munich-22-4_IFSC%2FDimitris%20Tosidis.jpg',
-		'EGA_Krakow-23-1_Team%20Deutschland%2FMaurice%20Stach.jpg',
-		'EGA_Krakow-23-2_Team%20Deutschland%2FMaurice%20Stach_*.jpg',
-		'EGA_Krakow-23-3_Team%20Deutschland%2FMaurice%20Stach.jpg',
-		'GCH_Bochum-23-1_DAV%2FThomas%20Schermer.jpg',
-		'GCH_Bochum-23-2_DAV%2FThomas%20Schermer_*.jpg',
-		'GCH_Ulm-23-1_DAV%2FMarco%20Kost_*.jpg',
-		'WC_Chamonix_23_1_IFSC%2FJan%20Virt.jpg',
-		'WC_Villars-23-1_Viviana%20Lucke.jpg',
-		'WC_Villars-23-2_Viviana%20Lucke.jpg'
+		'EC_Arco-22-1_FASI_c_*.jpg',
+		'EC_Arco-22-1_FASI_r.jpg',
+		'ECH_Munich-22-1_DAV_c.jpg',
+		'EC_Hamburg-22-1_DAV_c_*.jpg',
+		'ECH_Munich-22-2_DAV_c.jpg',
+		'ECH_Munich-22-4_IFSC%2FDimitris%20Tosidis_c.jpg',
+		'EC_Mezzolombardo-22-1_Davide%20Terenzi_c.jpg',
+		'ECH_Munich-22-3_IFSC%2FDimitris%20Tosidis_c_*.jpg',
+		'EGA_Krakow-23-2_Team%20Deutschland%2FMaurice%20Stach_c_*.jpg',
+		'EGA_Krakow-23-1_Team%20Deutschland%2FMaurice%20Stach_c.jpg',
+		'EGA_Krakow-23-3_Team%20Deutschland%2FMaurice%20Stach_r.jpg',
+		'EYC_Duisburg-21-1_DAV_r.jpg',
+		'EYC_Puurs-21-1_Michael%20Timmermaus_c_*.jpg',
+		'EYC_Puurs-21-2_Michael%20Timmermaus_r_*.jpg',
+		'EYC_Zilina-21-1_Viviana%20Lucke_c.JPG',
+		'EYC_Puurs-21-3_Michael%20Timmermaus_c_*.jpg',
+		'GCH_Bochum-23-1_DAV%2FThomas%20Schermer_l.jpg',
+		'GCH_Ulm-23-1_DAV%2FMarco%20Kost_r_*.jpg',
+		'WC_Chamonix-23-1_IFSC%2FJan%20Virt_r.jpg',
+		'WC_Villars-23-1_Viviana%20Lucke_c.jpg',
+		'GCH_Bochum-23-2_DAV%2FThomas%20Schermer_c_*.jpg',
+		'WC_Villars-23-2_Viviana%20Lucke_c.jpg',
+		'YWCH_Voronezh-22-1_IFSC%2FJan%20Virt_c.jpg',
+		'YWCH_Voronezh-22-2_IFSC%2FJan%20Virt_l.jpg'
 	].map((el) => {
 		const data = el.split('.')[0].split('_');
 		const type = data[0] as CompType;
 		const location = data[1].split('-')[0];
-		const year = data[1].split('-')[1];
+		const year = parseInt(data[1].split('-')[1]) + 2000;
 		const copyright = data[2];
+		const alignment = data[3] as 'l' | 'r' | 'c';
 		const elevate = data.includes('*');
 
 		return {
 			src: `/speedclimbing/gallery/${encodeURIComponent(el)}`,
 			elevate: elevate,
 			copyright: decodeURIComponent(copyright),
-			description: `${compTypeString(type)} ${location} ${year}`
+			description: `${compTypeString(type)} ${location} ${year}`,
+			alignment
 		};
 	});
 </script>
@@ -308,6 +319,7 @@
 	</div>
 </div>
 
+<span class="text-xl font-bold text-white">Memories</span>
 <PillGallery {images} columns={6} />
 
 <div class="h-[1000px] w-full" />

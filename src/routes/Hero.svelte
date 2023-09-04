@@ -62,7 +62,7 @@
 <div
 	bind:this={element}
 	id="hero"
-	class="w-full flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
+	class="w-full py-24 lg:py-48 flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
 >
 	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<h1 class="text-3xl tracking-loose">Hi, I am</h1>
