@@ -35,22 +35,22 @@
 
 <span class="text-xl font-bold text-white">Gallery</span>
 
-<div bind:this={element}>
-	<div class="flex flex-row gap-3 justify-center">
+<div class="lg:p-8 xl:p-12" bind:this={element}>
+	<div class="flex flex-row gap-2 justify-center content-center w-full">
 		{#each Array(columnCount) as _, i}
-			<div class="flex flex-col gap-4 items-center">
+			<div class="flex flex-col grow gap-2 items-center content-center">
 				{#each Array(Math.floor(images.length / columnCount)) as _, j}
 					<!-- svelte-ignore a11y-missing-attribute a11y-no-static-element-interactions a11y-click-events-have-key-events -->
-					<a class="cursor-pointer" on:click={() => (maximizeImage = getImage(i, j))}>
+					<a class="cursor-pointer contents" on:click={() => (maximizeImage = getImage(i, j))}>
 						{#if getImage(i, j).elevate}
 							<ImagePill
-								class="h-[300px] z-10"
+								class="w-full z-10"
 								src={getImage(i, j).src}
 								style="transform: rotate(-12deg) translateY({element?.offsetHeight * 0.1 +
 									-element?.offsetHeight * 0.3 * scrollProgress}px);"
 							/>
 						{:else}
-							<ImagePill class="h-[200px] z-0" src={getImage(i, j).src} />
+							<ImagePill class="w-[60%] z-0" src={getImage(i, j).src} />
 						{/if}
 					</a>
 				{/each}

@@ -218,7 +218,7 @@
 
 <Counts />
 
-<div class="p-6 w-full flex flex-col xl:flex-row gap-10 justify-between">
+<div class="w-full flex flex-col xl:flex-row gap-10 justify-between">
 	<div class="flex flex-col gap-2">
 		<span class="text-xl font-bold text-white">My story...</span>
 		<p class="">
