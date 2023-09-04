@@ -7,4 +7,6 @@
 <div class="container mx-auto p-8 lg:pt-12 flex flex-col gap-8">
 	<Hero />
 	<Speedclimbing />
+
+	<div class="h-[1000px] w-full" />
 </div>

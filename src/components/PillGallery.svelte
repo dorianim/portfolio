@@ -2,15 +2,8 @@
 	import { onMount } from 'svelte';
 	import ImagePill from './ImagePill.svelte';
 	import { getScrollProgress } from '$lib/scroll';
-	import Modal from './Modal.svelte';
-
-	type Image = {
-		src: string;
-		copyright: string;
-		description: string;
-		elevate?: boolean;
-		alignment: 'l' | 'r' | 'c';
-	};
+	import type { Image } from './ImageBrowseModal.svelte';
+	import ImageBrowseModal from './ImageBrowseModal.svelte';
 
 	export let images: Image[];
 	export let columns = 7;
@@ -19,16 +12,21 @@
 
 	let element: HTMLElement | undefined;
 	let scrollProgress = 0;
-	let maximizeImage: Image | undefined;
+	let maximizeImage: number | undefined;
 
 	onMount(() => {
 		window.addEventListener('scroll', () => {
 			scrollProgress = getScrollProgress(element);
 		});
+		scrollProgress = getScrollProgress(element);
 	});
 
+	const getImageIndex = (i: number, j: number) => {
+		return i * Math.floor(images.length / columnCount) + j;
+	};
+
 	const getImage = (i: number, j: number) => {
-		return images[i * Math.floor(images.length / columnCount) + j];
+		return images[getImageIndex(i, j)];
 	};
 
 	const getAlignmentClass = (image: Image) => {
@@ -38,6 +36,7 @@
 	};
 
 	$: columnCount = Math.min(images.length, columns);
+	$: console.log(maximizeImage);
 </script>
 
 <div class="lg:p-8 xl:p-12" bind:this={element}>
@@ -46,7 +45,7 @@
 			<div class="flex flex-col grow gap-2 items-center content-center">
 				{#each Array(Math.floor(images.length / columnCount)) as _, j}
 					<!-- svelte-ignore a11y-missing-attribute a11y-no-static-element-interactions a11y-click-events-have-key-events -->
-					<a class="cursor-pointer contents" on:click={() => (maximizeImage = getImage(i, j))}>
+					<a class="cursor-pointer contents" on:click={() => (maximizeImage = getImageIndex(i, j))}>
 						{#if getImage(i, j).elevate}
 							<ImagePill
 								class="w-full z-10"
@@ -69,12 +68,4 @@
 	</div>
 </div>
 
-<Modal showModal={maximizeImage !== undefined}>
-	<div class="flex flex-col items-center justify-center gap-4">
-		<img
-			src={maximizeImage?.src}
-			alt="{maximizeImage?.description}, (C) {maximizeImage?.copyright}"
-		/>
-		{maximizeImage?.description}, (C) {maximizeImage?.copyright}
-	</div>
-</Modal>
+<ImageBrowseModal {images} bind:showImage={maximizeImage} />

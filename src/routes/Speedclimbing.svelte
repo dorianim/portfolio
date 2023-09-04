@@ -1,22 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Counts from '../components/Counts.svelte';
-	import PodiumGold from 'svelte-material-icons/PodiumGold.svelte';
-	import PodiumSilver from 'svelte-material-icons/PodiumSilver.svelte';
-	import PodiumBronze from 'svelte-material-icons/PodiumBronze.svelte';
-	import Web from 'svelte-material-icons/Web.svelte';
-	import CircleSmall from 'svelte-material-icons/CircleSmall.svelte';
-	import TelevisionClassic from 'svelte-material-icons/TelevisionClassic.svelte';
-	import ImagePill from '../components/ImagePill.svelte';
 	import PillGallery from '../components/PillGallery.svelte';
-
-	type CompType = 'SGCH' | 'GCH' | 'EYC' | 'YWCH' | 'UWCH' | 'EC' | 'ECH' | 'EGA' | 'WC';
-	type CompResult = {
-		type: CompType;
-		location: string;
-		date: Date;
-		rank: number;
-	};
+	import CompetitionResultTimeline, {
+		compTypeString,
+		type CompType,
+		type CompResult
+	} from '../components/CompetitionResultTimeline.svelte';
 
 	const press: {
 		url: string;
@@ -144,68 +134,34 @@
 			date: new Date(2023, 7, 8),
 			rank: 3
 		}
-	].sort((a, b) => b.date.getTime() - a.date.getTime());
-
-	const resultsByYear = Object.entries(
-		results.reduce((acc, cur) => {
-			const year = cur.date.getFullYear();
-			if (!acc[year]) {
-				acc[year] = [];
-			}
-			acc[year].push(cur);
-			return acc;
-		}, {} as Record<number, typeof results>)
-	).sort(([a], [b]) => parseInt(b) - parseInt(a));
-
-	const compTypeString = (type: CompType): string => {
-		switch (type) {
-			case 'SGCH':
-				return 'South German Championship';
-			case 'GCH':
-				return 'German Championship';
-			case 'EYC':
-				return 'European Youth Cup';
-			case 'YWCH':
-				return 'Youth World Championship';
-			case 'UWCH':
-				return 'University World Championship';
-			case 'EC':
-				return 'European Cup';
-			case 'ECH':
-				return 'European Championship';
-			case 'EGA':
-				return 'European Games';
-			case 'WC':
-				return 'World Cup';
-		}
-	};
+	];
 
 	// ls --quoting-style={escape,shell,c} -1 static/speedclimbing/gallery | sed '$!s/$/,/'
 	const images = [
 		'EC_Arco-22-1_FASI_c_*.jpg',
 		'EC_Arco-22-1_FASI_r.jpg',
 		'ECH_Munich-22-1_DAV_c.jpg',
-		'EC_Hamburg-22-1_DAV_c_*.jpg',
-		'ECH_Munich-22-2_DAV_c.jpg',
+		'YWCH_Voronezh-22-1_IFSC%2FJan%20Virt_c.jpg',
 		'ECH_Munich-22-4_IFSC%2FDimitris%20Tosidis_c.jpg',
 		'EC_Mezzolombardo-22-1_Davide%20Terenzi_c.jpg',
 		'ECH_Munich-22-3_IFSC%2FDimitris%20Tosidis_c_*.jpg',
 		'EGA_Krakow-23-2_Team%20Deutschland%2FMaurice%20Stach_c_*.jpg',
 		'EGA_Krakow-23-1_Team%20Deutschland%2FMaurice%20Stach_c.jpg',
+		'EYC_Puurs-21-1_Michael%20Timmermaus_c_*.jpg',
 		'EGA_Krakow-23-3_Team%20Deutschland%2FMaurice%20Stach_r.jpg',
 		'EYC_Duisburg-21-1_DAV_r.jpg',
-		'EYC_Puurs-21-1_Michael%20Timmermaus_c_*.jpg',
 		'EYC_Puurs-21-2_Michael%20Timmermaus_r_*.jpg',
 		'EYC_Zilina-21-1_Viviana%20Lucke_c.JPG',
-		'EYC_Puurs-21-3_Michael%20Timmermaus_c_*.jpg',
 		'GCH_Bochum-23-1_DAV%2FThomas%20Schermer_l.jpg',
+		'EYC_Puurs-21-3_Michael%20Timmermaus_c_*.jpg',
+		'YWCH_Voronezh-22-2_IFSC%2FJan%20Virt_l.jpg',
 		'GCH_Ulm-23-1_DAV%2FMarco%20Kost_r_*.jpg',
 		'WC_Chamonix-23-1_IFSC%2FJan%20Virt_r.jpg',
 		'WC_Villars-23-1_Viviana%20Lucke_c.jpg',
 		'GCH_Bochum-23-2_DAV%2FThomas%20Schermer_c_*.jpg',
+		'EC_Bologna-23-1_FASI_c.jpg',
 		'WC_Villars-23-2_Viviana%20Lucke_c.jpg',
-		'YWCH_Voronezh-22-1_IFSC%2FJan%20Virt_c.jpg',
-		'YWCH_Voronezh-22-2_IFSC%2FJan%20Virt_l.jpg'
+		'EC_Hamburg-22-1_DAV_c_*.jpg'
 	].map((el) => {
 		const data = el.split('.')[0].split('_');
 		const type = data[0] as CompType;
@@ -231,7 +187,7 @@
 
 <div class="w-full flex flex-col xl:flex-row gap-10 justify-between">
 	<div class="flex flex-col gap-2">
-		<span class="text-xl font-bold text-white">My story...</span>
+		<span class="text-2xl font-bold text-white">My story...</span>
 		<p class="">
 			When I was four years old, my Dad took me to the climbing gym for the first time. I was
 			immediately fascinated by the sport and started climbing regularly. At the age of 5, I joined
@@ -255,7 +211,7 @@
 			<br />
 			Wanna know how the story goes on? Follow me on Instagram to stay up to date!
 		</p>
-		<span class="text-xl font-bold text-white">In the press</span>
+		<span class="text-2xl font-bold text-white">In the press</span>
 		<div class="grid grid-cols-1 gap-3">
 			{#each press as item}
 				<a
@@ -274,52 +230,10 @@
 		</div>
 	</div>
 	<div class="min-w-[200px] md:min-w-[400px]">
-		<span class="text-xl font-bold text-white">Recent competition results:</span>
-		<ol class="relative border-l border-gray-200 dark:border-gray-700 pt-2">
-			{#each resultsByYear as [year, results]}
-				<li class="mt-3 ml-4">
-					<div
-						class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"
-					/>
-					<time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-						{year}
-					</time>
-					<div class="mt-2 grid grid-cols-[2rem_2.5rem_auto]">
-						{#each results as result}
-							<div
-								class="contents {result.rank === 1 && 'text-gold'} {result.rank === 2 &&
-									'text-silver'} {result.rank === 3 && 'text-bronze'} {result.type === 'WC' &&
-									'font-bold'}"
-							>
-								<span class="w-auto">
-									{#if result.rank === 1}
-										<PodiumGold />
-									{:else if result.rank === 2}
-										<PodiumBronze />
-									{:else if result.rank === 3}
-										<PodiumSilver />
-									{:else if result.type === 'WC' || result.type === 'UWCH' || result.type === 'YWCH'}
-										<Web />
-									{:else}
-										<CircleSmall />
-									{/if}
-								</span>
-
-								<span>{result.rank}.</span>
-								<span>
-									{compTypeString(result.type)}
-									{result.location}</span
-								>
-							</div>
-						{/each}
-					</div>
-				</li>
-			{/each}
-		</ol>
+		<span class="text-2xl font-bold text-white">Recent competition results:</span>
+		<CompetitionResultTimeline {results} />
 	</div>
 </div>
 
-<span class="text-xl font-bold text-white">Memories</span>
+<span class="text-2xl font-bold text-white">Memories</span>
 <PillGallery {images} columns={6} />
-
-<div class="h-[1000px] w-full" />
