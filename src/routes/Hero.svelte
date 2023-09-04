@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { onDestroy, onMount } from 'svelte';
 	import SkillList from '../components/SkillList.svelte';
 	import SocialMediaButtons from '../components/SocialMediaButtons.svelte';
+	import { getScrollProgress } from '$lib/scroll';
 
 	const coreSkills = [
 		{
@@ -42,28 +44,14 @@
 		instagram: 'https://instagram.com/dorian.cpp'
 	};
 
-	const handleScroll = () => {
-		if (!element) return;
-
-		const elementPosition = window.scrollY - element.scrollTop;
-
-		scrollProgress =
-			(elementPosition > 0
-				? elementPosition > element.scrollHeight
-					? element.scrollHeight
-					: elementPosition
-				: 0) / element.scrollHeight;
-		console.log(scrollProgress);
-	};
-
 	let element: HTMLElement | undefined;
 	let scrollProgress = 0;
 
-	$: {
-		if (!element) break $;
-
-		window.addEventListener('scroll', handleScroll);
-	}
+	onMount(() => {
+		window.addEventListener('scroll', () => {
+			scrollProgress = getScrollProgress(element);
+		});
+	});
 </script>
 
 <div
@@ -72,7 +60,7 @@
 >
 	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<h1 class="text-3xl text-gray-600 tracking-loose">Hi, I am</h1>
-		<h2 class="text-5xl font-bold leading-relaxed md:leading-snug">Dorian Zedler</h2>
+		<h2 class="text-5xl font-bold text-white leading-relaxed md:leading-snug">Dorian Zedler</h2>
 
 		<SkillList skills={coreSkills} class="hidden lg:block" />
 		<SocialMediaButtons {...socialMedia} class="hidden lg:flex" />
