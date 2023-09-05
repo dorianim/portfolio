@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Counts from '../components/Counts.svelte';
-	import PillGallery from '../components/PillGallery.svelte';
+	import BeanGallery from '../components/BeanGallery.svelte';
 	import CompetitionResultTimeline, {
 		compTypeString,
 		type CompType,
@@ -236,6 +235,6 @@
 </div>
 
 <span class="text-2xl font-bold text-white">Memories</span>
-<PillGallery class="hidden lg:block" {images} columns={6} />
-<PillGallery class="lg:hidden" images={images.slice(0, 4 * 3)} columns={3} />
-<PillGallery class="lg:hidden -mt-48" images={images.slice(4 * 3, 4 * 3 + 4 * 3)} columns={3} />
+<BeanGallery class="hidden lg:block" {images} columns={6} />
+<BeanGallery class="lg:hidden" images={images.slice(0, 4 * 3)} columns={3} />
+<BeanGallery class="lg:hidden -mt-48" images={images.slice(4 * 3, 4 * 3 + 4 * 3)} columns={3} />

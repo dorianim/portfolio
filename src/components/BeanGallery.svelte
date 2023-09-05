@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import ImagePill from './ImagePill.svelte';
+	import BeanImage from './BeanImage.svelte';
 	import { getScrollProgress } from '$lib/scroll';
 	import type { Image } from './ImageBrowseModal.svelte';
 	import ImageBrowseModal from './ImageBrowseModal.svelte';
@@ -49,14 +49,14 @@
 					<!-- svelte-ignore a11y-missing-attribute a11y-no-static-element-interactions a11y-click-events-have-key-events -->
 					<a class="cursor-pointer contents" on:click={() => (maximizeImage = getImageIndex(i, j))}>
 						{#if getImage(i, j).elevate}
-							<ImagePill
+							<BeanImage
 								class="w-full z-10"
 								src={getImage(i, j).src}
 								style="transform: rotate(-12deg) translateY({30 + -100 * scrollProgress}%);"
 								innerClass={getAlignmentClass(getImage(i, j))}
 							/>
 						{:else}
-							<ImagePill
+							<BeanImage
 								class="w-[60%] z-0"
 								src={getImage(i, j).src}
 								innerClass={getAlignmentClass(getImage(i, j))}

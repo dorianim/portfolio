@@ -3,7 +3,7 @@
 	import SkillList from '../components/SkillList.svelte';
 	import SocialMediaButtons from '../components/SocialMediaButtons.svelte';
 	import { getScrollProgress } from '$lib/scroll';
-	import ImagePill from '../components/ImagePill.svelte';
+	import BeanImage from '../components/BeanImage.svelte';
 
 	const coreSkills = [
 		{
@@ -68,9 +68,9 @@
 	<div class="px-[3%] grow flex gap-[7%] items-center content-center">
 		{#each images as image, i}
 			{#if i === 1}
-				<ImagePill src={image.src} class="grow" />
+				<BeanImage src={image.src} class="grow" />
 			{:else}
-				<ImagePill
+				<BeanImage
 					src={image.src}
 					class="grow-[0.6]"
 					innerClass="bg-left"
