@@ -42,8 +42,12 @@
 </script>
 
 <div class="lg:px-8 xl:px-12 {clazz}" bind:this={element}>
-	<div class="flex flex-row gap-2 justify-center content-center w-full">
+	<div class="flex flex-row flex-wrap gap-2 justify-center content-center w-full">
 		{#each Array(columnCount) as _, i}
+			{#if i === 3}
+				<div class="lg:hidden h-1 w-full" />
+			{/if}
+
 			<div class="flex flex-col grow gap-2 items-center content-center">
 				{#each Array(Math.floor(images.length / columnCount)) as _, j}
 					<!-- svelte-ignore a11y-missing-attribute a11y-no-static-element-interactions a11y-click-events-have-key-events -->
