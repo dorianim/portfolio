@@ -37,7 +37,7 @@
 {#if showImage !== undefined}
 	<div
 		transition:fade={{ duration: 200 }}
-		class="fixed left-0 top-0 z-[1001] grid h-screen w-screen grid-cols-4 grid-rows-[64px_1fr] overflow-y-hidden bg-black"
+		class="fixed left-0 top-0 z-[1001] grid h-screen w-screen grid-cols-4 grid-rows-[64px_1fr] overflow-y-hidden bg-[#0000007f]"
 	>
 		<!-- header -->
 		<div class="z-[1000] col-span-4 col-start-1 row-span-1 row-start-1 transition-transform">
