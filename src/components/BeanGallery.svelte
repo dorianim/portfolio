@@ -52,7 +52,8 @@
 							<BeanImage
 								class="w-full z-10"
 								src={getImage(i, j).src}
-								style="transform: rotate(-12deg) translateY({30 + -100 * scrollProgress}%);"
+								style="transform: rotate(-12deg) translateY({30 +
+									-(20 + (getImageIndex(i, j) / images.length) * 100) * scrollProgress}%);"
 								innerClass={getAlignmentClass(getImage(i, j))}
 							/>
 						{:else}
