@@ -41,13 +41,6 @@
 		}
 	];
 
-	const socialMedia = {
-		mastodon: 'https://tum.social/@dorian',
-		git: 'https://itsblue.dev/dorian',
-		github: 'https://github.com/dorianim',
-		instagram: 'https://instagram.com/dorian.cpp'
-	};
-
 	let element: HTMLElement | undefined;
 	let scrollProgress = 0.5;
 
@@ -62,14 +55,14 @@
 <div
 	bind:this={element}
 	id="hero"
-	class="w-full py-24 lg:py-48 flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
+	class="w-full py-12 md:py-24 lg:py-48 flex flex-row flex-wrap items-center justify-center gap-6 lg:gap-12"
 >
 	<div class="flex flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<h1 class="text-3xl tracking-loose">Hi, I am</h1>
 		<h2 class="text-5xl font-bold text-white leading-relaxed md:leading-snug">Dorian Zedler</h2>
 
 		<SkillList skills={coreSkills} class="hidden lg:block" />
-		<SocialMediaButtons {...socialMedia} class="hidden lg:flex" />
+		<SocialMediaButtons class="hidden lg:flex" />
 	</div>
 
 	<div class="px-[3%] grow flex gap-[7%] items-center content-center">
@@ -90,6 +83,6 @@
 
 	<div class="flex lg:hidden z-50 flex-col gap-6 w-full lg:w-1/3 justify-center items-start">
 		<SkillList skills={coreSkills} />
-		<SocialMediaButtons {...socialMedia} />
+		<SocialMediaButtons />
 	</div>
 </div>

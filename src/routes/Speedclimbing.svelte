@@ -191,7 +191,7 @@
 		<p class="">
 			When I was four years old, my Dad took me to the climbing gym for the first time. I was
 			immediately fascinated by the sport and started climbing regularly. At the age of 5, I joined
-			the <a href="https://climbingteam.de">Climbingteam Stuttgart</a>
+			the <a class="text-blue-500" href="https://climbingteam.de">Climbingteam Stuttgart</a>
 			and started to compete in kids-cups, which was a combination of lead, bouldering and classic speed.
 			<br />
 			As I grew older, I started to compete at state and later at national level, at the time, speed
