@@ -7,6 +7,8 @@
 
 	export let images: Image[];
 	export let columns = 7;
+	let clazz = '';
+	export { clazz as class };
 
 	let columnCount = columns;
 
@@ -39,7 +41,7 @@
 	$: console.log(maximizeImage);
 </script>
 
-<div class="lg:px-8 xl:px-12" bind:this={element}>
+<div class="lg:px-8 xl:px-12 {clazz}" bind:this={element}>
 	<div class="flex flex-row gap-2 justify-center content-center w-full">
 		{#each Array(columnCount) as _, i}
 			<div class="flex flex-col grow gap-2 items-center content-center">
@@ -50,8 +52,7 @@
 							<ImagePill
 								class="w-full z-10"
 								src={getImage(i, j).src}
-								style="transform: rotate(-12deg) translateY({element?.offsetHeight * 0.1 +
-									-element?.offsetHeight * 0.3 * scrollProgress}px);"
+								style="transform: rotate(-12deg) translateY({30 + -100 * scrollProgress}%);"
 								innerClass={getAlignmentClass(getImage(i, j))}
 							/>
 						{:else}

@@ -236,4 +236,6 @@
 </div>
 
 <span class="text-2xl font-bold text-white">Memories</span>
-<PillGallery {images} columns={6} />
+<PillGallery class="hidden lg:block" {images} columns={6} />
+<PillGallery class="lg:hidden" images={images.slice(0, 4 * 3)} columns={3} />
+<PillGallery class="lg:hidden -mt-48" images={images.slice(4 * 3, 4 * 3 + 4 * 3)} columns={3} />
