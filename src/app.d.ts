@@ -5,7 +5,12 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
-		// interface Platform {}
+		interface Platform {
+			env?: {
+				FORMRECEVR_URL: string;
+				TURNSTILE_SITE_KEY: string;
+			};
+		}
 	}
 }
 

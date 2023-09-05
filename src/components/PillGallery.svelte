@@ -39,7 +39,7 @@
 	$: console.log(maximizeImage);
 </script>
 
-<div class="lg:p-8 xl:p-12" bind:this={element}>
+<div class="lg:px-8 xl:px-12" bind:this={element}>
 	<div class="flex flex-row gap-2 justify-center content-center w-full">
 		{#each Array(columnCount) as _, i}
 			<div class="flex flex-col grow gap-2 items-center content-center">

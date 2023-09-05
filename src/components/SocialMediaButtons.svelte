@@ -4,10 +4,10 @@
 	import Github from 'svelte-material-icons/Github.svelte';
 	import Instagram from 'svelte-material-icons/Instagram.svelte';
 
-	export let mastodon: string;
-	export let git: string;
-	export let github: string;
-	export let instagram: string;
+	export let mastodon: string = 'https://tum.social/@dorian';
+	export let git: string = 'https://itsblue.dev/dorian';
+	export let github: string = 'https://github.com/dorianim';
+	export let instagram: string = 'https://instagram.com/dorian.cpp';
 
 	let clazz = '';
 	export { clazz as class };

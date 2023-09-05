@@ -1,12 +1,16 @@
 <script lang="ts">
-	import Counts from '../components/Counts.svelte';
+	import type { PageData } from './$types';
+	import Contact from './Contact.svelte';
 	import Hero from './Hero.svelte';
+	import SoftwareProjects from './SoftwareProjects.svelte';
 	import Speedclimbing from './Speedclimbing.svelte';
+
+	export let data: PageData;
 </script>
 
-<div class="container mx-auto p-8 lg:pt-12 flex flex-col gap-8">
-	<Hero />
-	<Speedclimbing />
+<Hero />
+<Speedclimbing />
 
-	<div class="h-[1000px] w-full" />
-</div>
+{#if data.turnstileSiteKey !== undefined && data.formrecevrUrl !== undefined}
+	<Contact turnstileSiteKey={data.turnstileSiteKey} formrecevrUrl={data.formrecevrUrl} />
+{/if}

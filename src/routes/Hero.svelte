@@ -12,7 +12,7 @@
 			icon: '/hero/speed_hold.png'
 		},
 		{
-			id: 'it',
+			id: 'software-projects',
 			text: 'Software Developer',
 			icon: '/hero/technologist.png'
 		},
@@ -49,7 +49,7 @@
 	};
 
 	let element: HTMLElement | undefined;
-	let scrollProgress = 0;
+	let scrollProgress = 0.5;
 
 	onMount(() => {
 		window.addEventListener('scroll', () => {
