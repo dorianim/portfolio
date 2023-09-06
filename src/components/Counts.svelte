@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { getScrollProgress } from '$lib/scroll';
 	import { onMount } from 'svelte';
 
@@ -62,11 +63,21 @@
 		}, 5000);
 	};
 
-	$: scrollProgress = getScrollProgress(element);
+	const setFinalNumbers = () => {
+		for (let stat of stats) {
+			stat.currentValue = stat.count;
+		}
+	};
+
+	$: {
+		scrollProgress = getScrollProgress(element);
+	}
 
 	$: {
 		if (scrollProgress > 0.2) {
 			animateNumbers();
+		} else if (!browser) {
+			setFinalNumbers();
 		}
 	}
 </script>

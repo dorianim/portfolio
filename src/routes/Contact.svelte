@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Turnstile } from 'svelte-turnstile';
 	import Loading from 'svelte-material-icons/Loading.svelte';
+	import { browser } from '$app/environment';
 
 	export let turnstileSiteKey: string;
 	export let formrecevrUrl: string;
@@ -79,9 +80,19 @@
 			class="px-4 py-3 leading-normal rounded-lg alert text-red-700 bg-red-100"
 			role="alert"
 		>
-			Oh no! An error occurred while submitting your form. Please contact my on a different way.
+			Oh no! An error occurred while submitting your form. Please contact me on a different way.
 		</div>
 	{/await}
+{/if}
+
+{#if !browser}
+	<div
+		id="status-toast"
+		class="px-4 py-3 leading-normal rounded-lg alert text-red-700 bg-red-100"
+		role="alert"
+	>
+		This form does not work without Javascript. Please contact me on a different way.
+	</div>
 {/if}
 
 <form
@@ -129,7 +140,7 @@
 		<button
 			id="submit-button"
 			type="submit"
-			class="w-40 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+			class="w-40 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-bold py-2 px-4 rounded"
 			disabled={!turnstilePassed || loading}
 		>
 			{#if loading}

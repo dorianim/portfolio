@@ -13,7 +13,7 @@
 	let columnCount = columns;
 
 	let element: HTMLElement | undefined;
-	let scrollProgress = 0;
+	let scrollProgress = 0.5;
 	let maximizeImage: number | undefined;
 
 	onMount(() => {
