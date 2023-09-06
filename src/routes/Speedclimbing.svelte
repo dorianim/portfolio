@@ -214,7 +214,7 @@
 		<div class="grid grid-cols-1 gap-3">
 			{#each press as item}
 				<a
-					class="grid grid-cols-[8rem_auto] items-center border-gray-700 border rounded-lg relative overflow-clip h-min gap-3"
+					class="grid grid-cols-[8rem_auto] items-center border-gray-700 border rounded-lg relative overflow-hidden h-min gap-3"
 					href={item.url}
 					target="_blank"
 				>
