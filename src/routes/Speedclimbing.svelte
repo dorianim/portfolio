@@ -214,13 +214,16 @@
 		<div class="grid grid-cols-1 gap-3">
 			{#each press as item}
 				<a
-					class="grid grid-cols-[8rem_auto] items-center border-gray-700 border rounded-lg relative overflow-hidden h-min gap-3"
+					class="grid max-md:grid-rows-[12rem_auto] md:grid-cols-[8rem_auto] items-center border-gray-700 border rounded-lg relative overflow-hidden h-min gap-3"
 					href={item.url}
 					target="_blank"
 				>
-					<img class="h-full rounded-lg object-cover" src={item.thumbnail} alt="thumbnail" />
+					<div
+						class="h-full w-full overflow-hidden bg-top bg-cover"
+						style="background-image: url({item.thumbnail});"
+					/>
 
-					<div class="flex flex-col p-3">
+					<div class="flex flex-col p-3 max-md:pt-0">
 						<span class="text-lg font-bold">{item.title}</span>
 						<span>{item.subtitle}</span>
 					</div>
