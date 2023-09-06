@@ -38,7 +38,6 @@
 	};
 
 	$: columnCount = Math.min(images.length, columns);
-	$: console.log(maximizeImage);
 </script>
 
 <div class="lg:px-8 xl:px-12 {clazz}" bind:this={element}>
